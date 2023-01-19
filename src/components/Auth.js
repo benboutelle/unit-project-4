@@ -10,7 +10,7 @@ const Auth = () => {
 
   const authCtx = useContext(AuthContext);
 
-  const submitHandler = (e) => {
+  const submitHandler = e => {
     e.preventDefault();
     console.log("submitHandler called");
     const body = {
@@ -18,11 +18,10 @@ const Auth = () => {
       password,
     };
 
-    const url = "https://socialmtn.devmountain.com";
-
+    
     axios
-      .post(register ? `${url}/register` : `${url}/login`, body)
-      .then(({ res }) => {
+      .post(register ? `/register` : `/login`, body)
+      .then( res  => {
         console.log("auth", res.data);
         authCtx.login(res.data.token, res.data.exp, res.data.userId);
       })
@@ -55,7 +54,7 @@ const Auth = () => {
           {register ? "Sign Up" : "Login"}
         </button>
       </form>
-      <button className="form-btn" onClick={(e) => setRegister(e.target.value)}>
+      <button className="form-btn" onClick={(e) => setRegister(!register)}>
         Need to {register ? "Login" : "Sign Up"}?
       </button>
     </main>

@@ -61,7 +61,7 @@ module.exports = {
     try{
       const {id}= req.params
       const {status}= req.body
-      await Post.udate({privateStatus: status}, {
+      await Post.update({privateStatus: status}, {
         where:{id: +id}
       })
       res.sendStatus(200)

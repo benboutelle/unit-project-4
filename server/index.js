@@ -4,7 +4,7 @@ const express = require('express')
 const cors = require('cors')
 
 const {SERVER_PORT} = process.env          
-const {getAllPosts, getCurrentUserPosts, addPost, deletePost} = require('./controllers/posts')
+const {getAllPosts, getCurrentUserPosts, addPost, deletePost, editPost} = require('./controllers/posts')
 const {register, login}= require('./controllers/auth')
 const {isAuthenticated}= require('./middleware/isAuthenticated')
 const {sequelize}= require('./util/database')
